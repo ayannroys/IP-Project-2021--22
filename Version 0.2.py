@@ -9,20 +9,20 @@ from datetime import date, timedelta
 def clear(): 
     os.system('cls')
 
-CountrieShipping = pd.read_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Countriesandshipping.csv")
-Packages = pd.read_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv")
-Deals = pd.read_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Deals.csv")
+CountrieShipping = pd.read_csv(r"C:\Users\ayann\Desktop\Assingment\Countriesandshipping.csv" )
+Packages = pd.read_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv")
+Deals = pd.read_csv(r"C:\Users\ayann\Desktop\Assingment\Deals.csv")
 
 #Extreme beta probably will not be included in the final product
-Date_Data = pd.read_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Date.csv")
+Date_Data = pd.read_csv(r"C:\Users\ayann\Desktop\Assingment\Date.csv")
 
-ans  = 1
+ans  = 1 
 while ans  == True :
     print("""
     ----------------------------------------------------------------------------------------
     ██████████████████████████████████████████████               ESTB. - 1969
-    █░░░░░░░░░░░░███░░░░░░██░░░░░░█░░░░░░█████████           
-    █░░▄▀▄▀▄▀▄▀░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████     Where there's a will, DHL is the way
+    █░░░░░░░░░░░░███░░░░░░██░░░░░░█░░░░░░█████████           (NOT FOR PUBLIC EYES)
+    █░░▄▀▄▀▄▀▄▀░░░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████     Where there’s a will, DHL is the way
     █░░▄▀░░░░▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████           
     █░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████                  
     █░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░▄▀░░█░░▄▀░░█████████                  Alert:
@@ -31,14 +31,14 @@ while ans  == True :
     █░░▄▀░░██░░▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░█████████       countries has been temporarly 
     █░░▄▀░░░░▄▀▄▀░░█░░▄▀░░██░░▄▀░░█░░▄▀░░░░░░░░░░█                suspended.   
     █░░▄▀▄▀▄▀▄▀░░░░█░░▄▀░░██░░▄▀░░█░░▄▀▄▀▄▀▄▀▄▀░░█
-    █░░░░░░░░░░░░███░░░░░░██░░░░░░█░░░░░░░░░░░░░░█      
+    █░░░░░░░░░░░░███░░░░░░██░░░░░░█░░░░░░░░░░░░░░█      !help - For help with commands
     ██████████████████████████████████████████████
     ----------------------------------------------------------------------------------------
 
-    ----------------   ---------------   --------------  -------------  ------------ 
-    |   Customer    |  |   Staff     |   |  Analyst   |  | Developer |  |  About   |
-    |    Portal     |  |   Portal    |   |   Portal   |  |   Acess   |  |    us    |
-    |   (Press 1)   |  |  (Press 2)  |   |  (Press 3) |  | (Press 4) |  | (Press 5)|
+    -----------------  ---------------   --------------  -------------  ------------ 
+    |   Customer    |  |   Staff     |   |  Analyst   |  |   Cancel  |  |  About   |
+    |    Portal     |  |   Portal    |   |   Portal   |  |   Package |  |    us    |
+    |   (Press 1)   |  |  (Press 2)  |   |( Press 3 ) |  | (Press 4) |  | (Press 5)|
     -----------------  ---------------   --------------  -------------  ------------          """)
 
     portal_selection = int(input("Please Chose the Portal you want to log into ===> "))
@@ -123,17 +123,17 @@ while ans  == True :
 
                 Extra_Detail = {"ID":[package_id],"Package":[Item],"Weight":[Weight],"Length":[Length],"Height":[Height],"Cargo":[cargo],"Sender_Adress":[Sender_Adress],"Reciever_Adress":[Reciever_Adress],"Reciever Name":[Reciever_Name]}
                 df = pd.DataFrame(Extra_Detail)
-                df.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Manifest.csv" , header= False, mode = 'a')
+                df.to_csv(r"C:\Users\ayann\Desktop\Assingment\Manifest.csv" , header= False , mode = 'a')
 
                 
                 item = {"ID":[package_id],"Package":[Item],"Sender_Name":[Sender_Name],"Destination":[Reciever_Country],"Status":["On time"],"Shipping":[transport]}
                 df = pd.DataFrame(item)
-                df.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" , header= False, mode = 'a')
+                df.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" , header= False , mode = 'a')
 
                 #BETA
                 Refund = {"ID":[package_id],"Package_Type":[cargo],"Sended_Date":[date.today()],"Expected_Date":[date.today()+timedelta(days = 7)]}
                 a = pd.DataFrame(Refund)
-                a.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Date.csv",header = False, mode = 'a')
+                a.to_csv(r"C:\Users\ayann\Desktop\Assingment\Date.csv",header = False, mode = 'a')
         
             elif customer_portal1 == 2:
                 print("""
@@ -212,9 +212,10 @@ while ans  == True :
                 ░█▄▄▀ ░█ ░█ ░█▄▄█                   
                 ----------------------------------------------------------------------------------------
                 1) SHOW ALL PACKAGES 
-                2) CHANGE ORDER
-                3) MODIFY DEALS 
-                4) CHANGE COUNTRY STATUS""")
+                2) CHANGE ORDERS
+                3) ADD PACKAGE MANUALLY
+                4) MODIFY DEALS 
+                5) CHANGE COUNTRY STATUS""")
 
                 employee_ans = int(input("ENTER YOUR OPTION : "))
 
@@ -253,7 +254,7 @@ while ans  == True :
                         old_id = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_id = int(input("PLEASE ENTER THE NEW ORDER ID : "))
                         Packages.loc[old_id,'ID'] = new_id
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" , )
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" , )
                         input()
 
 
@@ -268,7 +269,7 @@ while ans  == True :
                         old_Package = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_Package = input("PLEASE ENTER THE NEW PACKAGE : ")
                         Packages.loc[old_Package,'Package'] = new_Package
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" )
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" )
                         input()
 
                     elif a == 3:
@@ -282,7 +283,7 @@ while ans  == True :
                         old_Name = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_Package = input("PLEASE ENTER THE NEW NAME : ")
                         Packages.loc[old_Name,'Sender_Name'] = new_Package
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" )
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" )
                         input()
 
                     elif a == 4:
@@ -296,7 +297,7 @@ while ans  == True :
                         old_Destination = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_Destination = input("PLEASE ENTER THE NEW DESTINATION : ")
                         Packages.loc[old_Destination,'Destination'] = new_Destination
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv")
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv")
                         input()
 
                     elif a == 5:
@@ -310,7 +311,7 @@ while ans  == True :
                         old_Status = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_Status = input("PLEASE ENTER THE NEW STATUS : ")
                         Packages.loc[old_Status,'Status'] = new_Status
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" )
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" )
                         input()
                     
                     elif a == 6:
@@ -324,14 +325,24 @@ while ans  == True :
                         old_Transport = int(input("PLEASE ENTER THE INDEX OF THE PACKAGE YOU WANT TO CHANGE : "))
                         new_Transport = input("PLEASE ENTER THE NEW DESTINATION : ")
                         Packages.loc[old_Transport,'Shipping'] = new_Transport
-                        Packages.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv" )
+                        Packages.to_csv(r"C:\Users\ayann\Desktop\Assingment\Packages.csv" )
                         input()
                     
                     elif a == 7:
                         customer = 0
 
 
-                elif employee_ans == 3:
+                elif employee_ans == 3: 
+                    print("""
+                    ----------------------------------------------------------------------------------------
+                    ░█▀▀▄ ░█ ░█ ░█                                                          
+                    ░█ ░█ ░█▀▀█ ░█                   CHANGING THE WORLD AS A WHOLE    
+                    ░█▄▄▀ ░█ ░█ ░█▄▄█                   
+                    ----------------------------------------------------------------------------------------""")
+
+                    clear()
+
+                elif employee_ans == 4:
                     print("""
                     ----------------------------------------------------------------------------------------
                     ░█▀▀▄ ░█ ░█ ░█                                                          
@@ -356,7 +367,7 @@ while ans  == True :
                         c = input("ENTER THE DISCOUNT : ")
                         deal = {"DEAL": [b] , "DISCOUNT": [c]}
                         df = pd.DataFrame(deal)
-                        df.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Deals.csv"  , mode = 'a' , header= False )
+                        df.to_csv(r"C:\Users\ayann\Desktop\Assingment\Deals.csv"  , mode = 'a' , header= False )
                 
                     elif A == 2:
                         print("""
@@ -368,11 +379,11 @@ while ans  == True :
                         b = input("PLEASE ENTER DEAL : ")
                         TIME = int(input("ENTER THE DEAL YOU WANT TO REMOVE: "))
                         df = pd.DataFrame(Deals.drop(index = TIME))
-                        df.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Deals.csv")
+                        df.to_csv(r"C:\Users\ayann\Desktop\Assingment\Deals.csv")
 
                     
                 
-                elif employee_ans == 4:
+                elif employee_ans == 5:
                     print("""
                     ----------------------------------------------------------------------------------------
                     ░█▀▀▄ ░█ ░█ ░█                                                          
@@ -384,13 +395,11 @@ while ans  == True :
                     status = input("Enter the new status of the country: ")
                     CountrieShipping.loc[country,"Service"] = status
 
-                    CountrieShipping.to_csv(r"C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Countriesandshipping.csv")
+                    CountrieShipping.to_csv(r"C:\Users\ayann\Desktop\Assingment\Countriesandshipping.csv")
                 clear()
-
             else :
                 print("Try again")
-                input()
-                
+                customer = 0
             clear()
             customer = 0
         
@@ -415,7 +424,7 @@ while ans  == True :
                 PLEASE SELECT THE ITEM YOU WANT TO COMPARE: 
                 
                 1) TRANSPORT
-                2) COUNTRIES MARKET
+                2) COUNTRIES
                 3) DELAY AND ON TIME PACKAGES
                 4) COUNTRY STATUS""")
 
@@ -514,83 +523,55 @@ while ans  == True :
                     ░█▀▀▄ ░█ ░█ ░█                BRINGING THE WORLD                                        
                     ░█ ░█ ░█▀▀█ ░█                      CLOSER
                     ░█▄▄▀ ░█ ░█ ░█▄▄█                   TO YOU
-                    ----------------------------------------------------------------------------------------
-                    1) BAR GRAPH
-                    2) PIE CHART""")
-                    
-                    GRAPH_TYPE = int(input("PLEASE SELECT THE GRAPH TYPE YOU NEED: "))
-                    Status = []
-                    Status_Data = []
-                    no = int(input("HOW MANY STATUS DO YOU WANT TO COMPARE ? (MAX 4)"))
-                    for i in range (0,no):
-                        a = input("ENTER THE STATUS: ")
-                        b = CountrieShipping.Service.value_counts()[a]
-                        Status.append(a)
-                        Status_Data.append(b)
-                        
+                    ----------------------------------------------------------------------------------------""")
 
-                    if GRAPH_TYPE == 1:
-                        plt.bar(Status,Status_Data)
-                        plt.xlabel("Status")
-                        plt.ylabel("Countreis")
-                        plt.show()
-
-                    elif GRAPH_TYPE == 2:
-                        plt.title("Country status")
-                        plt.pie(Status_Data,labels = Status)
-                        plt.show()
                     clear()
 
             customer = 0
 
         elif portal_selection == 4:
- 
-            developer_code = int(input("PLEASE ENTER THE DEVELOPER CODE: "))
+            print("""
+            ----------------------------------------------------------------------------------------
+            ░█▀▀▄ ░█ ░█ ░█                                                      
+            ░█ ░█ ░█▀▀█ ░█                   (PLEASE DO NOT SELECT ANY OF THE BELOW OPTIONS)      
+            ░█▄▄▀ ░█ ░█ ░█▄▄█                     THIS PORTAL IS USED TO ERASE ALL DATA
+            ----------------------------------------------------------------------------------------
+            1) PACKAGES
+            2) DATE
+            3) MANIFEST""")
 
-            if developer_code == 9869:
-                print("""
-                ----------------------------------------------------------------------------------------
-                ░█▀▀▄ ░█ ░█ ░█                                                      
-                ░█ ░█ ░█▀▀█ ░█                   (PLEASE DO NOT SELECT ANY OF THE BELOW OPTIONS)      
-                ░█▄▄▀ ░█ ░█ ░█▄▄█                     THIS PORTAL IS USED TO ERASE ALL DATA
-                ----------------------------------------------------------------------------------------
-                1) PACKAGES
-                2) DATE
-                3) MANIFEST""")
+            #PLEASE IGNORE THE SLOPPY CODING. WE HAD TIME CONSTRAINS
 
-                
+            developer = int(input("PLEASE ENTER YOUR OPTION : "))
 
-                developer = int(input("PLEASE ENTER YOUR OPTION : "))
+            if developer == 1: 
+                Packages.pop("ID")
+                Packages.pop("Package")
+                Packages.pop("Sender_Name")
+                Packages.pop("Destination")
+                Packages.pop("Status")
+                Packages.pop("Shipping")
+                Packages.to_csv(r'C:\Users\ayann\Desktop\Assingment\Packages.csv')
 
-                if developer == 1: 
-                    Packages.pop("ID")
-                    Packages.pop("Package")
-                    Packages.pop("Sender_Name")
-                    Packages.pop("Destination")
-                    Packages.pop("Status")
-                    Packages.pop("Shipping")
-                    Packages.to_csv(r'C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv')
+            elif developer == 2:
+                Packages.pop("ID")
+                Packages.pop("Package_Type")
+                Packages.pop("Sender_Date")
+                Packages.pop("Expected_Date")
+                Packages.to_csv(r'C:\Users\ayann\Desktop\Assingment\Packages.csv')
 
-                elif developer == 2:
-                    Packages.pop("ID")
-                    Packages.pop("Package_Type")
-                    Packages.pop("Sender_Date")
-                    Packages.pop("Expected_Date")
-                    Packages.to_csv(r'C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv')
+            elif developer == 3: 
+                Packages.pop("ID")
+                Packages.pop("Weight")
+                Packages.pop("Length")
+                Packages.pop("Height")
+                Packages.pop("Cargo")
+                Packages.pop("Sender_Adress")
+                Packages.pop("Reciever_Adress")
+                Packages.pop("Reciever Name")
+                Packages.to_csv(r'C:\Users\ayann\Desktop\Assingment\Packages.csv')
 
-                elif developer == 3: 
-                    Packages.pop("ID")
-                    Packages.pop("Weight")
-                    Packages.pop("Length")
-                    Packages.pop("Height")
-                    Packages.pop("Cargo")
-                    Packages.pop("Sender_Adress")
-                    Packages.pop("Reciever_Adress")
-                    Packages.pop("Reciever Name")
-                    Packages.to_csv(r'C:\Users\ayann\OneDrive\Desktop\Assingment-20220102T060307Z-001\Assingment\Packages.csv')
 
-            else:
-                print("SORRY WRONG CODE TRY AGAIN ")
 
             input()
             clear()
@@ -608,8 +589,7 @@ while ans  == True :
                 94___84_ 25___76_ 65___88_                                D - DEV ATHA
                 2894655_ 383256__ 37___65_                  (WE WOULD LIKE TO THANK EVERYONE WHO SUPPORTED US)
                 92___28_ 79___62_ 56__29__
-                93___74_ 83___86_ 87895___           This project is not associated with DHL in any official way. 
-                                                       DHL is a registered trademarks of Dalsey, Hillblom, Lynn""")
+                93___74_ 83___86_ 87895___    THIS SOFTWARE WAS DEVELOPED BY AND IS A INTELECTUAL PROPERTY OF ARD STUDIOS""")
              
             input("PRESS ENTER")
             customer  = 0 
